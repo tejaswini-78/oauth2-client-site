@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OAuth2 Callback</title>
+  <style>
+    body { font-family: Arial; background: #f0f0f0; padding: 50px; text-align: center; }
+    .box { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px #ccc; display: inline-block; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Authentication Successful</h2>
+    <p>You’ve been redirected back from the OAuth2 provider.</p>
+    <p><strong>Authorization Code:</strong></p>
+    <p id="code">Loading...</p>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get('code');
+      document.getElementById('code').textContent = code || 'No code found';
+    </script>
+  </div>
+</body>
+</html>
